@@ -1,5 +1,7 @@
 package com.instructionator.instructions.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,16 @@ public class InstructionController {
 			return new ResponseEntity<>(i, HttpStatus.FOUND);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/top")
+	public ResponseEntity<List<Instruction>> getTopInstructions(){
+		List<Instruction> iList = instructionService.getTopInstructions();
+		if(iList != null) {
+			return new ResponseEntity<>(iList, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	

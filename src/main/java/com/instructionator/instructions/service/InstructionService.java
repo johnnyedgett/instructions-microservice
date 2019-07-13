@@ -1,5 +1,7 @@
 package com.instructionator.instructions.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.slf4j.Logger;
@@ -26,6 +28,16 @@ public class InstructionService {
 			LOG.error(String.format("GET ID: %d, ERROR: %s", id, e.getMessage()));
 			return null;
 		}
+	}
+	
+	// TODO: Implement a search feature. Right now, only going to be returning
+	//	the top 3 instructions.
+	public List<Instruction> getTopInstructions(){
+		List<Instruction> topList = new ArrayList<>();
+		topList.add(instructionRepository.findById(1L).get());
+		topList.add(instructionRepository.findById(2L).get());
+		topList.add(instructionRepository.findById(3L).get());
+		return topList;
 	}
 	
 	public Instruction createInstruction(Instruction instruction) {

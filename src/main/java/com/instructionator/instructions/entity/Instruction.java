@@ -24,6 +24,8 @@ public class Instruction {
 	private Long id;
 	private Long submitterId;
 	private Long categoryId;
+	private String name;
+	private String description;
 	private int favorites;
 	private int views;
 	
@@ -48,6 +50,18 @@ public class Instruction {
 	}
 	public void setViews(int views) {
 		this.views = views;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public Long getSubmitterId() {
 		return submitterId;
