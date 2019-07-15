@@ -21,7 +21,7 @@ import com.instructionator.instructions.service.InstructionService;
 @RequestMapping("/api/instruction")
 public class InstructionController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(InstructionController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(InstructionController.class);	
 	@Autowired
 	InstructionService instructionService;
 	
@@ -29,7 +29,7 @@ public class InstructionController {
 	public ResponseEntity<Instruction> getInstructionById(@RequestParam("id") Long id){
 		Instruction i = instructionService.getInstructionById(id);
 		if(i != null) {
-			return new ResponseEntity<>(i, HttpStatus.FOUND);
+			return new ResponseEntity<>(i, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
